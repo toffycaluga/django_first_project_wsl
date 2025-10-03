@@ -102,3 +102,41 @@ cat > templates/index.html << 'EOF'
 EOF
 
 ```
+### Editar ``config/settings.py`` -> TEMPLATES.DIRS
+
+Buscamos el bloque ``TEMPLATES`` y ajustamos ``DIRS``
+
+```python
+# config/settings.py (fragmento)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        # Añade la carpeta templates en el BASE_DIR
+        'DIRS': [BASE_DIR / 'templates'],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+```
+
+
+### Editar ``config/urls.py`` para usar ``TemplateView``:
+```python
+# config/urls.py
+from django.contrib import admin
+from django.urls import path
+from django.views.generic import TemplateView
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', TemplateView.as_view(template_name='index.html'), name='home'),
+]
+```
