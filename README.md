@@ -15,3 +15,7 @@ virtual para aislar dependencias.
 ## Migraciones y servidor
 - `python manage.py migrate`: aplica migraciones iniciales.
 - `python manage.py runserver`: inicia el servidor (http://localhost:8000).
+
+## Superusuario y panel de administración
+- `python manage.py createsuperuser`: crea un admin.
+- Panel: `http://localhost:8000/admin`.
