@@ -78,3 +78,27 @@ python manage.py createsuperuser
 
 ![login](./static/img/login.png)
 ![dashboard](./static/img/dashboard.png)
+
+
+## 7) Configuración mínima de Templates y URLs (sin crear app)
+
+- Se crea carpeta ``templates/`` en raíz y una vsta simple usando ``TemplateView`` para no crear una app aún.
+
+```bash 
+mkdir -p templates
+cat > templates/index.html << 'EOF'
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Django OK</title>
+</head>
+<body>
+  <h1>¡Django funcionando!</h1>
+  <p>Página inicial usando TemplateView y carpeta templates/ propia.</p>
+  <p><a href="/admin/">Ir al Admin</a></p>
+</body>
+</html>
+EOF
+
+```
