@@ -11,3 +11,7 @@ virtual para aislar dependencias.
 - `config/urls.py`: enrutamiento URL a vistas.
 - `config/__init__.py`: inicializa el paquete Python.
 - `manage.py`: CLI para comandos de administración (runserver, migrate, createsuperuser).
+
+## Migraciones y servidor
+- `python manage.py migrate`: aplica migraciones iniciales.
+- `python manage.py runserver`: inicia el servidor (http://localhost:8000).
