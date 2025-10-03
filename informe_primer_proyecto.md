@@ -12,3 +12,69 @@
 pip --version
 ```
 ![pip](./static/img/image.png)
+
+
+## 2) Crear entorno virtual e instalar Django 
+
+```bash
+# Crear venv
+python -m venv .venv
+
+# Activar venv
+source .venv/bin/activate   # verás (.venv) al inicio de tu prompt
+```
+![.venv](./static/img/entorno.png)
+```bash 
+
+# Instalar Django (versión LTS actual estable; si no te exigen versión fija, usa la última)
+pip install django
+
+# Verificar
+python -m django --version
+
+```
+![django](./static/img/django.png)
+
+## 3) Crear proyecto Django
+
+```bash
+django-admin startproject config .
+```
+
+
+## 4) Explorar archivos clave
+
+- **config/settings.py**: configuración del proyecto (apps, middleware, DB, templates, etc.).
+
+- **config/urls.py**: enrutador principal; mapea rutas a vistas.
+
+- **config/__init__.py**: marca el directorio como paquete Python; útil para imports.
+
+- **manage.py**: utilidad CLI para ejecutar comandos (runserver, migrate, createsuperuser, etc.).
+
+## 5) Levantar el servidor de desarrollo 
+
+Primero, aplicamos migraciones iniciales (crea tablas base , como auth y admin):
+
+```bash
+python manage.py migrate
+```
+
+iniciamos el servidor 
+
+```bash
+python manage.py runserver
+# Captura 3: página de bienvenida de Django ok
+# Ctrl + C para detener
+
+```
+![web](./static/img/web1.png)
+
+## 6) Crear superusuario y acceder al admin
+
+```bash
+python manage.py createsuperuser
+```
+
+![login](./static/img/login.png)
+![dashboard](./static/img/dashboard.png)
